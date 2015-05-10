@@ -102,6 +102,7 @@ describe Xcode::Configuration do
       :sdkroot,
       :c_language_standard,
       :gcc_version,
+	  :provisioning_profile,
       :code_sign_identity,
       :iphoneos_deployment_target ]
     end

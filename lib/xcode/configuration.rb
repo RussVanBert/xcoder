@@ -200,6 +200,12 @@ module Xcode
     # Build Setting - "GCC_C_LANGUAGE_STANDARD"
     # Usually set to gnu99
     property :c_language_standard, "GCC_C_LANGUAGE_STANDARD", StringProperty
+
+    # @attribute
+	# [MaxC 2015-04-23]
+    # Build Setting - "PROVISIONING_PROFILE"
+    # Usually set by the user
+    property :provisioning_profile, "PROVISIONING_PROFILE", StringProperty
     
     # @attribute
     # Build Setting - "ALWAYS_SEARCH_USER_PATHS"
