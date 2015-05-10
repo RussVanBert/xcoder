@@ -9,7 +9,7 @@ module Xcode
     class BaseBuilder
       include Xcode::TerminalOutput
 
-      attr_accessor :profile, :identity, :build_path, :keychain, :sdk, :objroot, :symroot
+      attr_accessor :profile, :identity, :build_path, :keychain, :sdk, :objroot, :symroot, :envvars #maxc
       attr_reader   :config, :target
 
       def initialize(target, config)
@@ -18,6 +18,9 @@ module Xcode
 
         @sdk = @target.project.sdk
       end
+	  def envvars= (value) 
+		@envvars = value
+	  end
 
       def profile= (value)
           if value.is_a?(ProvisioningProfile)
@@ -60,7 +63,12 @@ module Xcode
           
           cmd.env["OBJROOT"]  = "\"#{objroot}/\""
           cmd.env["SYMROOT"]  = "\"#{symroot}/\""
+		  #maxc iterate ENVVARs
             
+		  @envvars.each do | key, val |
+	  	  	cmd.env["#{key}"] = "\"#{val}\""	
+		  end
+
           unless profile.nil?
             profile.install
             print_task "builder", "Using profile #{profile.install_path}", :debug
