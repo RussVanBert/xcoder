@@ -84,8 +84,7 @@ module Xcode
         'PBXContainerItemProxy' => ContainerItemProxy,
         'PBXBuildFile' => BuildFile,
         'PBXVariantGroup' => VariantGroup,
-        'XCConfigurationList' => ConfigurationList,
-        'PBXVariantGroup' => VariantGroup }[isa]
+        'XCConfigurationList' => ConfigurationList }[isa]
         
         Array(modules)
     end
